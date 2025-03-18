@@ -1,0 +1,40 @@
+=== Целочисленные типы ===
+bit						1 byte (0, 1, NULL)
+tinyint					1 byte (0 - 255)
+smallint				2 byte (-32768 - 32767)
+int 					4 byte
+bigint					8 byte
+
+=== Строковые типы ===
+char(n)					fixed length, 		not Unicode, 	(n --> 1 - 8000)
+varchar(n|MAX)			variable length, 	not Unicode 	(n --> 1 - 8000 | MAX)
+nchar(n)				fixed length, 		Unicode, 		(n --> 1 - 8000)
+nvarchar(n|MAX)			variable length, 	Unicode 		(n --> 1 - 8000 | MAX)
+
+=== Вещественные типы ===
+float(n)				from 1 to 24 (4 byte, 7 signs)
+						from 25 to 53 (8 bytes, 15 signs)
+real					equls float(24)
+decimal(a, b)			a --> 1 - 38	b --> 0 - a
+numeric(a, b)			a --> 1 - 38	b --> 0 - a
+money					equals decimal(19, 4) 8 byte
+smallmoney				equals decimal(10, 4) 4 byte
+
+=== Дата и время ===
+datetime				date, time with sec and ms						2023-09-05 12:43:12.487
+datetime2				date, time with sec and ms and mcs				2023-09-05 12:43:12.487653
+smalldatetime			date, time with sec								2023-09-05 12:43:12
+date 					date 											2023-09-05
+time 					time with sec and ms and mcs					12:43:12.487653
+datetimeoffset			date, time with sec and ms and timezine			2023-09-05 12:43:12.487:U+3
+
+=== Дополнительные типы данных ===
+binary(n)				(n --> 1 - 8000)
+varbinary(n)			(n --> 1 - 8000 | MAX)
+
+geometry
+geography
+
+table
+
+xml
