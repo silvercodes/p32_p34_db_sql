@@ -99,3 +99,13 @@ FROM
 ORDER BY
 	CASE WHEN salary < 2000 THEN 'A' ELSE 'B' END,
 	name
+
+
+SELECT
+	id, name, salary,
+	CASE WHEN salary < 2000 THEN 'A' ELSE 'B' END
+FROM
+	employees
+ORDER BY
+	CASE WHEN salary < 2000 THEN 'A' ELSE 'B' END,
+	name;
