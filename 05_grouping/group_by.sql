@@ -72,3 +72,55 @@ SELECT
 FROM employees
 GROUP BY department_id
 
+
+
+
+
+--==== HAVING ====
+
+SELECT
+	department_id,
+	SUM(salary) AS [Salary_sum]
+FROM employees
+GROUP BY department_id
+HAVING SUM(salary) > 6000;
+
+
+
+SELECT
+	department_id,
+	SUM(salary) AS [Salary_sum]
+FROM employees
+GROUP BY department_id
+HAVING SUM(salary) > 6000 AND COUNT(id) >= 2;
+
+
+
+
+-- :-(((
+SELECT
+	department_id,
+	SUM(salary)   AS [Salary sum]
+FROM employees
+GROUP BY department_id
+HAVING department_id = 3;
+
+
+-- :-)))
+SELECT
+	department_id,
+	SUM(salary)   AS [Salary sum]
+FROM employees
+WHERE department_id = 3
+GROUP BY department_id;					-- Можно опустить
+
+
+
+-- DISTINCT						5
+-- TOP							7	
+-- SELECT					4
+-- FROM				0
+-- WHERE			1
+-- HAVING				3
+-- GROUP BY				2
+-- ORDER BY						6
