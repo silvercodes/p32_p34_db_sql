@@ -115,6 +115,20 @@ FROM employees e
 
 
 
+-- TASK
+-- Посчитать кол-во сотрудников по каждому отделу для каждой должности
+-- | department | position | count |
+
+SELECT
+	dep.title,
+	pos.title,
+	COUNT(emp.id)
+FROM departments dep
+		CROSS JOIN positions pos
+		LEFT JOIN employees emp ON pos.id = emp.position_id AND dep.id = emp.department_id
+GROUP BY dep.id, dep.title, pos.id, pos.title;
+
+
 
 
 
