@@ -60,6 +60,12 @@ FROM
 
 
 
+
+
+SELECT
+	*
+FROM positions p LEFT JOIN employees e ON p.id = e.position_id;
+
 -- TASK
 -- Вернуть кол-во служащих по должностям
 -- | position_name | emp_count |
@@ -110,13 +116,50 @@ FROM employees e
 			GROUP BY department_id
 		) lastEmp ON e.id = lastEmp.maxEmpId
 	RIGHT JOIN departments d ON e.department_id = d.id;
+
+
+
+-- TASK
+-- Вывести информацию о кол-ве служащих по каждому отделу для каждой должности
+-- | department | position | count |
+
+SELECT
+	d.title		AS [department],
+	p.title		AS [position],
+	COUNT(e.id)	AS [count]
+FROM departments d CROSS JOIN positions p
+		LEFT JOIN employees e ON e.department_id = d.id AND e.position_id = p.id
+GROUP BY d.id, d.title, p.id, p.title
 	
 
 
+-- Вывести информацию о кол-ве служащих по каждому отделу для каждой должности
+-- ИСКЛЮЧИТЬ НУЛЕВЫЕ СООТВЕТСТВИЯ
+-- | department | position | count |
+
+SELECT
+	d.title		AS [department],
+	p.title		AS [position],
+	COUNT(e.id)	AS [count]
+FROM departments d CROSS JOIN positions p
+		JOIN employees e ON e.department_id = d.id AND e.position_id = p.id
+GROUP BY d.id, d.title, p.id, p.title
+
+
+
+SELECT
+	d.title		AS [department],
+	p.title		AS [position],
+	COUNT(e.id)	AS [count]
+FROM employees e
+		JOIN departments d ON e.department_id = d.id
+		JOIN positions p ON e.position_id = p.id
+GROUP BY d.id, d.title, p.id, p.title
 
 
 
 
+	
 
 
 
