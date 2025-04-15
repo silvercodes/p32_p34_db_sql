@@ -1,11 +1,11 @@
 
---CREATE PROCEDURE uspGetUsersOf2000
---AS
---BEGIN
---	SELECT id, email
---	FROM users
---	WHERE YEAR(birthday) = 2000;
---END
+CREATE PROCEDURE uspGetUsersOf2000
+AS
+BEGIN
+	SELECT id, email
+	FROM users
+	WHERE YEAR(birthday) = 2000;
+END
 
 --EXECUTE uspGetUsersOf2000;
 --EXEC uspGetUsersOf2000;
